@@ -19,7 +19,7 @@ jobs:
           npm -v
       - name: Install dependencies
         run: |
-          npm install --legacy-peer-deps
+          npm install
           npm install -g @angular/cli
       - name: Build for prod
         run: |
@@ -35,16 +35,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4  # Checkout repository in the deployment job
-      - name: Install gh-pages
-        run: npm install -g gh-pages
-      - name: Download ./dist folder from previous job
+      - name: Install angular-cli-ghpages
+        run: npm install -g angular-cli-ghpages
+      - name: Download ./dist/browser folder from previous job
         uses: actions/download-artifact@v4
         with:
           name: dist-files
           path: ./dist
+      - name: update href in ./dist/polling-booth/index.html
+        run: |
+          sed -i 's|<base href="/">|<base href="https://vukkumsp.github.io/notes-ui-app/">|g' ./dist/notes-ui-app/browser/index.html
       - name: Set up Git for deployment
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
       - name: Deploy to Github Pages
-        run: gh-pages --dist dist/notes-ui-app/browser --repo="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/vukkumsp/notes-ui-app.git"
+        run: angular-cli-ghpages -d ./dist/notes-ui-app/browser --repo="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/vukkumsp/notes-ui-app.git" --no-silent
