@@ -1,0 +1,32 @@
+<div class="login-container">
+    <h2 class="login-title">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- <label for="username">Username:</label> -->
+        <input type="text" id="username" formControlName="username" placeholder="Enter your email" required>
+
+        @if(loginForm.controls.username.invalid && loginForm.controls.username.touched) {
+        <div class="error">Username is required.</div>
+        }
+        <br>
+        <!-- <label for="password">Password:</label> -->
+        <input type="password" id="password" formControlName="password" placeholder="Enter your password" required>
+
+
+        @if(loginForm.controls.password.invalid && loginForm.controls.password.touched) {
+        <div class="error">Password is required and must be at least 6 characters long.</div>
+        }
+
+        @if(error()) {
+            <div class="error">{{ error() }}</div>
+        }
+
+        <br>
+        <button class="login-button" type="submit" [disabled]="loading() || loginForm.invalid">
+            @if(loading()) {
+                <span class="spinner"></span> Logging in...
+            } @else {    
+                Login
+            }
+        </button>
+    </form>
+</div>
