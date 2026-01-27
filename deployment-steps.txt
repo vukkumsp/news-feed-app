@@ -3,19 +3,19 @@ https://www.npmjs.com/package/angular-cli-ghpages
 
 ng add angular-cli-ghpages
 
-ng deploy --base-href=/notes-ui-app/
-angular-cli-ghpages -d dist/notes-ui-app/ --no-silent
+ng deploy --base-href=/news-feed-app/
+angular-cli-ghpages -d dist/news-feed-app/ --no-silent
 
 Access:
-https://vukkumsp.github.io/notes-ui-app
+https://vukkumsp.github.io/news-feed-app
 
 
 -
 NOTE!!!! For this Angular Version, steps are different as ./dist structure is different.
          Angular generates all client required code inside ./dist/<repo-name>/browser
-            So, we need to use this folder as deployment source so -d ./dist/notes-ui-app/browser
+            So, we need to use this folder as deployment source so -d ./dist/news-feed-app/browser
          But before this, we need to update the base href of index.html inside ./dist/<repo-name>/browser
-            to point to our actual base url (https://vukkumsp.github.io/notes-ui-app/) so, it will be able to relate all paths from there.
+            to point to our actual base url (https://vukkumsp.github.io/news-feed-app/) so, it will be able to relate all paths from there.
 
 Step 1: Install helping dependency to push to ghpages
     `npm install -g angular-cli-ghpages`
@@ -25,10 +25,10 @@ Step 2: Build production ready code
 
 Step 3: Update ./dist/polling-booth/browser/index.html
     From <base href="/">
-    To <base href="https://vukkumsp.github.io/notes-ui-app/">
+    To <base href="https://vukkumsp.github.io/news-feed-app/">
 
     Run below command to do this step in linux env:
-    `sed -i 's|<base href="/">|<base href="https://vukkumsp.github.io/notes-ui-app/">|g' ./dist/notes-ui-app/browser/index.html`
+    `sed -i 's|<base href="/">|<base href="https://vukkumsp.github.io/news-feed-app/">|g' ./dist/news-feed-app/browser/index.html`
 
 Step 4: Deploy 
-    `angular-cli-ghpages -d dist/notes-ui-app/browser --no-silent`
+    `angular-cli-ghpages -d dist/news-feed-app/browser --no-silent`

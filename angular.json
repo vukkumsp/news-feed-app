@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "notes-ui-app": {
+    "news-feed-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -22,11 +22,7 @@
               }
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
-            ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -57,10 +53,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "notes-ui-app:build:production"
+              "buildTarget": "news-feed-app:build:production"
             },
             "development": {
-              "buildTarget": "notes-ui-app:build:development"
+              "buildTarget": "news-feed-app:build:development"
             }
           },
           "defaultConfiguration": "development"

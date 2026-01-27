@@ -1,13 +1,10 @@
 {
-  "name": "notes-ui-app",
+  "name": "news-feed-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "prestart": "node scripts/generate-env.mjs",
     "start": "ng serve",
-    "prebuild": "node scripts/generate-env.mjs",
-    "build": "ng build --base-href https://vukkumsp.github.io/notes-ui-app/",
-    "deploy": "npx angular-cli-ghpages -d dist/notes-ui-app/browser --no-silent",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -19,8 +16,6 @@
     "@angular/forms": "^20.0.0",
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
-    "bootstrap": "^5.3.6",
-    "dotenv": "^16.5.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -29,7 +24,6 @@
     "@angular/cli": "^20.0.2",
     "@angular/compiler-cli": "^20.0.0",
     "@types/jasmine": "~5.1.0",
-    "angular-cli-ghpages": "^2.0.3",
     "jasmine-core": "~5.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
