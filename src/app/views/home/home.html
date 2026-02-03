@@ -1,3 +1,10 @@
 <div class="home-container">
-    asdf
+    Home <br>
+    @for (article of articles(); track $index) {
+        <div class="article">
+            <app-card [article]="article"></app-card>
+        </div>
+    } @empty {
+        <p>No articles available.</p>
+    }
 </div>
